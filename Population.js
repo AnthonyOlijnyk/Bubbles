@@ -1,15 +1,17 @@
 
-function Population(){
-  this.bubbles = [];
-  this.popsize = 100;
-  this.matingpool = [];
-
-  for(var i = 0; i < this.popsize; i++){
-    this.bubbles[i] = new Bubble();
+class Population{
+  constructor(){
+    this.bubbles = [];
+    this.popsize = 100;
+    this.matingpool = [];
+  
+    for(var i = 0; i < this.popsize; i++){
+      this.bubbles[i] = new Bubble();
+    }
   }
+  
 
-  this.evaluate = function(){
-
+  evaluate(){
     var maxfit = 0;
     for(var i = 0; i < this.popsize; i++){
       this.bubbles[i].calcFitness();
@@ -34,7 +36,7 @@ function Population(){
     }
   }
 
-  this.selection = function(){
+  selection(){
     var newBubbles = [];
     for(var i = 0; i < this.bubbles.length; i++){
       var parentA = random(this.matingpool).dna;
@@ -46,7 +48,7 @@ function Population(){
     this.bubbles = newBubbles;
   }
 
-  this.run = function(){
+  run(){
     for(var i = 0; i < this.popsize; i++){
       this.bubbles[i].update();
       this.bubbles[i].show();

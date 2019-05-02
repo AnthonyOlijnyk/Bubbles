@@ -1,17 +1,18 @@
 
-function DNA(genes){
-  if(genes){
-    this.genes = genes;
-  } else{
-
-      this.genes = [];
-      for(var i = 0; i < lifespan; i++){
-        this.genes[i] = p5.Vector.random2D();
-        this.genes[i].setMag(maxforce);
+class DNA{
+  constructor(genes){
+    if(genes){
+      this.genes = genes;
+    } else{
+        this.genes = [];
+        for(var i = 0; i < lifespan; i++){
+          this.genes[i] = p5.Vector.random2D();
+          this.genes[i].setMag(maxforce);
+        }
       }
-    }
+  }
 
-  this.crossover = function(partner){
+  crossover(partner){
     var newgenes = [];
     var mid = floor(random(this.genes.lenth));
     for(var i = 0; i < this.genes.length; i++){
@@ -24,7 +25,7 @@ function DNA(genes){
     return new DNA(newgenes);
   }
 
-  this.mutation = function(){
+  mutation(){
     for(var i = 0; i < this.genes.length; i++){
       if(random(1) < 0.01){
         this.genes[i] = p5.Vector.random2D();

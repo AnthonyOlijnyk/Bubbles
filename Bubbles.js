@@ -1,23 +1,28 @@
 
-function Bubble(dna){
-  this.pos = createVector(width/2, height);
-  this.vel = createVector();
-  this.acc = createVector();
-  this.completed = false;
-  this.crashed = false;
-  if(dna){
-    this.dna = dna;
-  } else {
-    this.dna = new DNA();
+class Bubble{
+  constructor(dna){
+    this.pos = createVector(width/2, height);
+    this.vel = createVector();
+    this.acc = createVector();
+    this.completed = false;
+    this.crashed = false;
+    if(dna){
+      this.dna = dna;
+    } else {
+      this.dna = new DNA();
+    }
+    this.fitness = 0;
+
   }
-  this.fitness = 0;
+  
 
 
-  this.applyForce = function(force){
+
+  applyForce(force){
     this.acc.add(force);
   }
 
-  this.calcFitness = function(){
+  calcFitness(){
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
     this.fitness = map(d, 0, width, width, 0);
     if(this.completed){
@@ -30,7 +35,7 @@ function Bubble(dna){
   }
 
 
-  this.update = function(){
+  update(){
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
     if(d < 10){
       this.completed = true;
@@ -58,7 +63,7 @@ function Bubble(dna){
   }
 }
 
-  this.show = function(){
+  show(){
     push();
     noStroke();
     fill(255, 150);
