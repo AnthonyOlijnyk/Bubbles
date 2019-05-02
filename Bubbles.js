@@ -42,7 +42,11 @@ class Bubble{
       this.pos = target.copy();
     }
 
-    if(this.pos.x > rx && this.pos.x < rx + rw && this.pos.y > ry && this.pos.y < ry + rh){
+    if(this.pos.x > obstacle[0].rx && this.pos.x < obstacle[0].rx + obstacle[0].rw && this.pos.y > obstacle[0].ry && this.pos.y < obstacle[0].ry + obstacle[0].rh){
+      this.crashed = true;
+    }
+
+    if(this.pos.x > obstacle[1].rx && this.pos.x < obstacle[1].rx + obstacle[1].rw && this.pos.y > obstacle[1].ry && this.pos.y < obstacle[1].ry + obstacle[1].rh){
       this.crashed = true;
     }
 
@@ -66,7 +70,7 @@ class Bubble{
   show(){
     push();
     noStroke();
-    fill(255, 150);
+    fill(0, 255, 255, 150);
     translate(this.pos.x, this.pos.y);
     rotate(this.vel.heading());
     rectMode(CENTER);
