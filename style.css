@@ -1,0 +1,16 @@
+body{
+    background-color:#f4f4f4;
+    font-family: Calibri;
+    font-size: 24px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.settings{
+    padding: 10px;
+    float: right;
+}

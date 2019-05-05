@@ -50,6 +50,10 @@ class Bubble{
       this.crashed = true;
     }
 
+    if(this.pos.x > obstacle[2].rx && this.pos.x < obstacle[2].rx + obstacle[2].rw && this.pos.y > obstacle[2].ry && this.pos.y < obstacle[2].ry + obstacle[2].rh){
+      this.crashed = true;
+    }
+
     if(this.pos.x > width || this.pos.x < 0){
       this.crashed = true;
     }
@@ -73,7 +77,6 @@ class Bubble{
     fill(0, 255, 255, 150);
     translate(this.pos.x, this.pos.y);
     rotate(this.vel.heading());
-    rectMode(CENTER);
     ellipse(0, 0, 5, 5);
     pop();
   }
