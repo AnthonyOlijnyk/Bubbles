@@ -1,7 +1,7 @@
 
 class Bubble{
   constructor(dna){
-    this.pos = createVector(width/2, height);
+    this.pos = createVector(30, height/2);
     this.vel = createVector();
     this.acc = createVector();
     this.completed = false;
@@ -24,12 +24,12 @@ class Bubble{
 
   calcFitness(){
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    this.fitness = map(d, 0, width, width, 0);
+    this.fitness = map(d, 0, width, width, 0) - (count/lifespan);
     if(this.completed){
-      this.fitness *= 10;
+      this.fitness *= 3;
     }
     if(this.crashed){
-      this.fitness /= 10;
+      this.fitness /= 12;
     }
 
   }
@@ -66,7 +66,7 @@ class Bubble{
     if(!this.completed && !this.crashed){
     this.vel.add(this.acc);
     this.pos.add(this.vel);
-    this.acc.mult(0);
+    this.acc.mult(0.1);
     this.vel.limit(4);
   }
 }

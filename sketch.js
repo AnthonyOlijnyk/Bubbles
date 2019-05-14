@@ -1,5 +1,5 @@
 var population;
-var lifespan = 400;
+var lifespan = 500;
 var lifeP;
 var count = 0;
 var target;
@@ -12,19 +12,19 @@ var oldlifespan;
 
 
 function setup() {
-  var cnv = createCanvas(400,300);
+  var cnv = createCanvas(900,300);
   var x = (windowWidth - width) / 2;
   var y = (windowHeight - height) / 8;
   cnv.position(x, y);
   population = new Population();
-  obstacle[0] = new Obstacle(random(0, 300), random(200, 230), random(100, 200), 10);
-  obstacle[1] = new Obstacle(random(0, 300), random(80, 120), random(100, 200), 10);
-  obstacle[2] = new Obstacle(random(0, 300), random(150, 175), random(100, 200), 10);
+  obstacle[0] = new Obstacle(random(200, 300), random(0, 150), 10, random(50, 200));
+  obstacle[1] = new Obstacle(random(400, 500), random(0, 150), 10, random(50, 200));
+  obstacle[2] = new Obstacle(random(600, 700), random(0, 150), 10, random(50, 200));
   lifeP = createP();
   lifeP.id('inCode');
   genP = createP();
   genP.id('inCode');
-  target = createVector(width/2, 50);
+  target = createVector(width - 50, random(50, 250));
 }
 
 
@@ -37,7 +37,7 @@ function draw() {
   oldlifespan = lifespan;
   lifespan = lifedub;
   if(lifespan == undefined){
-    lifespan = 400;
+    lifespan = 500;
   } else {
     lifespan = lifedub;
   }

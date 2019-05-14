@@ -9,7 +9,7 @@ class Obstacle{
     
 
     show(){
-        fill(255);
+        fill(139, 69, 19);
         rect(this.rx, this.ry, this.rw, this.rh);
     }
 

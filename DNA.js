@@ -14,7 +14,7 @@ class DNA{
 
   crossover(partner){
     var newgenes = [];
-    var mid = floor(random(this.genes.lenth));
+    var mid = floor(random(this.genes.length));
     for(var i = 0; i < this.genes.length; i++){
       if(i > mid){
         newgenes[i] = this.genes[i];
@@ -27,7 +27,7 @@ class DNA{
 
   mutation(){
     for(var i = 0; i < this.genes.length; i++){
-      if(random(1) < 0.01){
+      if(random(1) <= 0.01){
         this.genes[i] = p5.Vector.random2D();
         this.genes[i].setMag(maxforce);
       }
