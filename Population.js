@@ -2,10 +2,9 @@
 class Population{
   constructor(){
     this.bubbles = [];
-    this.popsize = 100;
     this.matingpool = [];
   
-    for(var i = 0; i < this.popsize; i++){
+    for(var i = 0; i < popsize; i++){
       this.bubbles[i] = new Bubble();
     }
   }
@@ -13,7 +12,7 @@ class Population{
 
   evaluate(){
     var maxfit = 0;
-    for(var i = 0; i < this.popsize; i++){
+    for(var i = 0; i < popsize; i++){
       this.bubbles[i].calcFitness();
       if(this.bubbles[i].fitness > maxfit){
         maxfit = this.bubbles[i].fitness;
@@ -21,14 +20,14 @@ class Population{
     }
 
 
-    for(var i = 0; i < this.popsize; i++){
+    for(var i = 0; i < popsize; i++){
       this.bubbles[i].fitness /= maxfit; // makes sure everything is between 0 and 1
     }
 
     this.matingpool = [];
     //adds the number of participants to the matingpool based off
     //of their fitness value
-    for(var i = 0; i < this.popsize; i++){
+    for(var i = 0; i < popsize; i++){
       var n = this.bubbles[i].fitness * 100;//recall fitness between 0 and 1, this line gets the fitness value and multiplies it by 100
       for(var j = 0; j < n; j++){
         this.matingpool.push(this.bubbles[i]);// adds a certain number of participants to the matingpool and this number is determined from the multiplication of the fitness times 100
@@ -49,7 +48,7 @@ class Population{
   }
 
   run(){
-    for(var i = 0; i < this.popsize; i++){
+    for(var i = 0; i < popsize; i++){
       this.bubbles[i].update();
       this.bubbles[i].show();
     }

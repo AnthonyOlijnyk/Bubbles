@@ -24,7 +24,7 @@ class Bubble{
 
   calcFitness(){
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    this.fitness = map(d, 0, width, width, 0) - (count/lifespan);
+    this.fitness = map(d, 0, width, width, 0) - (count / (lifespan * 7));
     if(this.completed){
       this.fitness *= 3;
     }

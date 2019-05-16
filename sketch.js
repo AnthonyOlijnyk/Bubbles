@@ -1,4 +1,7 @@
 var population;
+var popsize;
+var popsizedub;
+var oldpopsize;
 var lifespan = 500;
 var lifeP;
 var count = 0;
@@ -20,9 +23,9 @@ function setup() {
   obstacle[0] = new Obstacle(random(200, 300), random(0, 150), 10, random(50, 200));
   obstacle[1] = new Obstacle(random(400, 500), random(0, 150), 10, random(50, 200));
   obstacle[2] = new Obstacle(random(600, 700), random(0, 150), 10, random(50, 200));
+  genP = createP();
   lifeP = createP();
   lifeP.id('inCode');
-  genP = createP();
   genP.id('inCode');
   target = createVector(width - 50, random(50, 250));
 }
@@ -41,6 +44,26 @@ function draw() {
   } else {
     lifespan = lifedub;
   }
+
+  document.getElementById('myButton2').onclick = function(){
+    popsizedub = int(document.getElementById('myText2').value);
+    return popsizedub;
+  }
+  oldpopsize = popsize;
+  popsize = popsizedub;
+
+  if(popsize == undefined){
+    popsize = 100;
+  } else {
+    popsize = popsizedub;
+  }
+  if(popsize != oldpopsize){
+    count = 0;
+    generation = 1;
+    population = new Population();
+  }
+  
+
   if (lifespan != oldlifespan){
     count = 0;
     generation = 1;
@@ -53,8 +76,8 @@ function draw() {
     population.selection();
   }
   population.run();
-  lifeP.html('Life Time: ' + count);
   genP.html('Generation: ' + generation);
+  lifeP.html('Life Time: ' + count);
   count++;
   if(count == lifespan){
     population.evaluate();

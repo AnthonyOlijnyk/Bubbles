@@ -7,10 +7,17 @@ body{
     align-items: center;
 }
 
+#inCode{
+    position: relative;
+    left: 300px;
+    top: 350px;
 
-
+}
 
 .settings{
-    padding: 10px;
-    float: right;
+    position: relative;
+    left: 650px;
+    top: 450px;
+    z-index: 1;
 }
+
