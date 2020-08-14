@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubbles!</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="libraries/p5.js"></script>
     <script src="libraries/p5.dom.js"></script>
     <script src="libraries/p5.sound.js"></script>
@@ -15,14 +16,27 @@
     <script src="Obstacle.js"></script>
   </head>
   <body>
-    <div class="settings">
-      <label id="ident">Lifespan: </label>
-        <input  type="text" name = "name" id="myText" value="500">
-      <input type ="button" id="myButton" value="Submit"></input>
-      <p></p>
-      <label id="ident">Population Size: </label>
-        <input  type="text" name = "name" id="myText2" value="100">
-      <input type ="button" id="myButton2" value="Submit"></input>
+    <div class="jumbotron">
+      <h1>Smart Bubbles!</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-8 top-pull">
+          <label class="ident">Lifespan: </label>
+          <input  type="text" name = "name" id="myText" value="500">
+          <input type ="button" class="btn" id="myButton" value="Submit"></input>
+          <p></p>
+          <label class="ident">Population Size: </label>
+          <input  type="text" name = "name" id="myText2" value="100">
+          <input type ="button" class="btn" id="myButton2" value="Submit"></input>
+        </div>
+        <div class="col-3 top-pull">
+          <p id="inCode2">Generation: </p>
+          <p id="inCode1">Life Time: </p>
+        </div>
+      </div>
     </div>
 
   </body>

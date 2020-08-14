@@ -17,16 +17,18 @@ var oldlifespan;
 function setup() {
   var cnv = createCanvas(900,300);
   var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 8;
+  var y = (windowHeight - height) / 4;
   cnv.position(x, y);
   population = new Population();
   obstacle[0] = new Obstacle(random(200, 300), random(0, 150), 10, random(50, 200));
   obstacle[1] = new Obstacle(random(400, 500), random(0, 150), 10, random(50, 200));
   obstacle[2] = new Obstacle(random(600, 700), random(0, 150), 10, random(50, 200));
-  genP = createP();
-  lifeP = createP();
-  lifeP.id('inCode');
-  genP.id('inCode');
+  // genP = createP();
+  // lifeP = createP();
+  // lifeP.id('inCode1');
+  // genP.id('inCode2');
+  lifeP = document.getElementById('inCode1');
+  genP = document.getElementById('inCode2');
   target = createVector(width - 50, random(50, 250));
 }
 
@@ -76,8 +78,10 @@ function draw() {
     population.selection();
   }
   population.run();
-  genP.html('Generation: ' + generation);
-  lifeP.html('Life Time: ' + count);
+  genP.innerText = "Generation: " + generation;
+  lifeP.innerText = "Life Time: " + count;
+  // genP.html('Generation: ' + generation);
+  // lifeP.html('Life Time: ' + count);
   count++;
   if(count == lifespan){
     population.evaluate();
